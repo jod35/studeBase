@@ -1,0 +1,29 @@
+footer{
+    background-color: #053557;
+    color: white;
+}
+.form-group{
+    color: #053557;
+}
+
+.myform{
+    border: 1px solid #053557;
+    width: 400px;
+    color: #053557;
+    border-top-color: white;
+    border-left: white;
+    border-right: white;
+    text-align: center;
+}
+.mybtn{
+    color: white;
+    background-color: #053557;
+    color: white;
+}
+.form{
+    padding: 25px;
+}
+.flash{
+    color: #053557;
+    text-align: center;
+}
