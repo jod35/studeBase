@@ -1,11 +1,34 @@
-from studeBase import db
+from studeBase import db,app
+from flask_login import LoginManager,UserMixin
 
-class User(db.Model):
+login_manager=LoginManager(app)
+
+login_manager.login_view= 'Login'
+
+#user loader callback
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+class User(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
-    full_names=db.Column(db.String(255),nullable=False)
-    username=db.Column(db.String(255),nullable=False)
-    email=db.Column(db.String(255),nullable=False)
+    full_names=db.Column(db.String(255),nullable=False,unique=True)
+    username=db.Column(db.String(255),nullable=False,unique=True)
+    email=db.Column(db.String(255),nullable=False,unique=True)
     password=db.Column(db.Text(),nullable=False)
     
     def __repr__(self):
         return '{}'.format(self.username)
+
+class Student(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    name=db.Column(db.String(255),unique=True,nullable=False)
+    age=db.Column(db.Integer(),nullable=False)
+    gender=db.Column(db.Integer(),nullable=False)
+    course=db.Column(db.String(255),nullable=False)
+    school=db.Column(db.String(255),nullable=False)
+
+    def __repr__(self):
+        return '{}'.format(self.name)
+

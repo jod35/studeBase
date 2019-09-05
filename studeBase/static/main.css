@@ -27,3 +27,26 @@ footer{
     color: #053557;
     text-align: center;
 }
+.home{
+    padding: 100px;
+    background-color: #053557;
+    color: white;
+}
+
+nav h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+select{
+    background-color: #053557;
+    color: white;
+    padding: 2px;
+    border-radius: 10px;
+}
+thead{
+    background-color: #053557;
+    color: white;
+}
+.ech3{
+    color: #053557;
+}

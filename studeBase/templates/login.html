@@ -1,0 +1,36 @@
+{% extends  'layout.html' %}
+{% block body %}
+{%with messages = get_flashed_messages()%}
+{% if messages %}
+        {% for message in messages %}
+                <div class="flash">
+                    {{message}}
+                </div>
+        {% endfor %}
+{% endif %}
+{%endwith%}
+<center> 
+       
+    <div class="form">
+        <form action="/login" method="post">
+            <h3>Admin Login</h3>
+       
+
+            <div class="form-group">
+                <p>Email</p>
+                {{form.email(class='myform')}}
+            </div>
+
+            <div class="form-group">
+                <p>Password</p>
+               {{form.password(class='myform')}}
+            </div>
+
+            <input type="submit" value="Log In" class="btn mybtn">
+          
+        </form>
+    </div>
+    </center>
+{% endblock %}
+
+

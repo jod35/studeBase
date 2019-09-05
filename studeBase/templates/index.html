@@ -1,15 +1,21 @@
 {% extends 'layout.html' %}
 {% block body %}
- <div class="jumbotron">
+ <div class="home">
+  {% if current_user.is_authenticated %}
+  <center>
+    <h1>Welcome</h1>
+  </center>
+
+  {%else%}
   <center>
     <h1 class="display-3">StudeBase</h1>
     <p class="lead">Your best student Database manager</p>
     <hr class="my-2">
-  
     <p class="lead">
         <a class="btn btn-primary btn-lg" href="/signup" role="button">Create An Account</a>
     </p>
   </center>
+  {%endif%}
  </div>
 {% endblock %}
 

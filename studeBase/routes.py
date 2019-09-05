@@ -2,6 +2,8 @@ from studeBase import app,db
 from flask import render_template,url_for,request,flash,redirect
 from studeBase.models import User
 from flask_bcrypt import Bcrypt
+from studeBase.forms import LoginForm
+from flask_login import login_user,logout_user,login_required
 
 bcrypt=Bcrypt(app)
 
@@ -10,7 +12,7 @@ bcrypt=Bcrypt(app)
 #the home page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',title='Home ')
 
 #the sign up page
 @app.route('/signup',methods=['GET', 'POST'])
@@ -33,4 +35,29 @@ def SignUp():
             return redirect('/signup')
 
         
-    return render_template('sign.html')
+    return render_template('sign.html',title='Create An Account')
+
+
+
+@app.route('/login', methods=['GET','POST'])
+def Login():
+    form=LoginForm()
+    email=request.form.get('email')
+    password=request.form.get('password')
+    user = User.query.filter_by(email=email).first()
+    if user and bcrypt.check_password_hash(user.password,password):
+        login_user(user)
+        return redirect('/')  
+    
+    return render_template('login.html',form=form,title='Login') 
+
+@app.route('/logout')
+def LogOutUser():
+   logout_user()
+   return redirect('/login')
+
+@app.route('/users')
+@login_required
+def UserDetails():
+    return render_template('users.html',title='Users')
+    
