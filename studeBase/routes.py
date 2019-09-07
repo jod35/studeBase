@@ -83,5 +83,15 @@ def add_student():
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def UpdateUser(id):
     student=Student.query.get_or_404(id)
+    if request.method == 'POST':    
+        student.name=request.form.get('name')
+        student.age=request.form.get('age')
+        student.gender=request.form.get('gender')
+        student.course=request.form.get('course')
+        student.school=request.form.get('school')
+        db.session.commit()
+        flash('Info Updated Successfully!!')
+        return redirect('/users')
+    
 
     return render_template('update.html',student=student)
