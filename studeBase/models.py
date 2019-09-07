@@ -1,5 +1,10 @@
 from studeBase import db,app
 from flask_login import LoginManager,UserMixin
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+
+admin=Admin(app)
+
 
 login_manager=LoginManager(app)
 
@@ -32,3 +37,5 @@ class Student(db.Model):
     def __repr__(self):
         return '{}'.format(self.name)
 
+admin.add_view(ModelView(User,db.session))
+admin.add_view(ModelView(Student,db.session))

@@ -20,6 +20,10 @@ footer{
     background-color: #053557;
     color: white;
 }
+.mybtn:hover{
+    background-color: white;
+    color: #053557;
+}
 .form{
     padding: 25px;
 }
@@ -49,4 +53,8 @@ thead{
 }
 .ech3{
     color: #053557;
+}
+td{
+    background-color: aquamarine;
+    height: 16px;
 }
