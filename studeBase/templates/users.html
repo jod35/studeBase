@@ -1,5 +1,14 @@
 {% extends 'layout.html' %}
 {% block body%}
+{%with messages = get_flashed_messages()%}
+{% if messages %}
+        {% for message in messages %}
+                <div class="flash">
+                    {{message}}
+                </div>
+        {% endfor %}
+{% endif %}
+{%endwith%}
 <div class="container">
         <h3 class="ech3">Add A Student</h3>
         <table class="table">
@@ -59,11 +68,14 @@
                     <td>{{student.course}}</td>
                     <td>{{student.school}}</td>
                     <td><a href="/update/{{student.id}}" class="mybtn btn">Manage</a></td>
+                    <td><a href="/delete/{{student.id}}" class="mybtn btn">Delete</a></td>
                 </tr>
                {% endfor %}
                
             </tbody>
         </table>
+        <br>
+        
 </div>
 {% endblock %}
 

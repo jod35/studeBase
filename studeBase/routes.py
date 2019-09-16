@@ -4,6 +4,7 @@ from studeBase.models import User,Student
 from flask_bcrypt import Bcrypt
 from studeBase.forms import LoginForm
 from flask_login import login_user,logout_user,login_required
+from studeBase.models import Payments
 
 bcrypt=Bcrypt(app)
 
@@ -82,7 +83,9 @@ def add_student():
     
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def UpdateUser(id):
+    
     student=Student.query.get_or_404(id)
+    # payments=Payments.query.filter_by(payer=id)
     if request.method == 'POST':    
         student.name=request.form.get('name')
         student.age=request.form.get('age')
@@ -95,3 +98,12 @@ def UpdateUser(id):
     
 
     return render_template('update.html',student=student)
+
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
+def DeleteStudent(id):
+   student=Student.query.get_or_404(id)
+   
+   db.session.delete(student)
+   db.session.commit()
+   flash('Record Deleted Successfully')
+   return redirect('/users')
