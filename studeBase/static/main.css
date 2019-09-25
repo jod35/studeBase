@@ -1,60 +1,75 @@
-footer{
-    background-color: #053557;
-    color: white;
+footer {
+  background-color: #053557;
+  color: white;
 }
-.form-group{
-    color: #053557;
-}
-
-.myform{
-    border: 1px solid #053557;
-    width: 400px;
-    color: #053557;
-    border-top-color: white;
-    border-left: white;
-    border-right: white;
-    text-align: center;
-}
-.mybtn{
-    color: white;
-    background-color: #053557;
-    color: white;
-}
-.mybtn:hover{
-    background-color: white;
-    color: #053557;
-}
-.form{
-    padding: 25px;
-}
-.flash{
-    color: #053557;
-    text-align: center;
-}
-.home{
-    padding: 100px;
-    background-color: #053557;
-    color: white;
+.form-group {
+  color: #053557;
 }
 
-nav h1{
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
+.myform {
+  border: 1px solid #053557;
+  width: 400px;
+  color: #053557;
+  border-top-color: white;
+  border-left: white;
+  border-right: white;
+  text-align: center;
 }
-select{
-    background-color: #053557;
-    color: white;
-    padding: 2px;
-    border-radius: 10px;
+.mybtn {
+  color: white;
+  background-color: #053557;
+  color: white;
 }
-thead{
-    background-color: #053557;
-    color: white;
+.mybtn:hover {
+  background-color: white;
+  color: #053557;
 }
-.ech3{
-    color: #053557;
+.form {
+  padding: 25px;
 }
-td{
-    background-color: aquamarine;
-    
+.flash {
+  color: #053557;
+  text-align: center;
+}
+.home {
+  padding: 100px;
+  background-color: #053557;
+  color: white;
+}
+
+nav h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+}
+select {
+  background-color: #053557;
+  color: white;
+  padding: 2px;
+  border-radius: 10px;
+}
+thead {
+  background-color: #053557;
+  color: white;
+}
+.ech3 {
+  color: #053557;
+}
+td {
+  background-color: aquamarine;
+}
+.danger {
+  color: red;
+}
+
+.main-body{
+  min-height: 500px;
+}
+.cont{
+  display: flex;
+  justify-content: space-between;
+}
+.card{
+  color: #053557;
+  width: 40%;
+  margin-left: 35px;
 }

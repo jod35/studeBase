@@ -2,10 +2,27 @@
 {% block body %}
  <div class="home">
   {% if current_user.is_authenticated %}
-  <center>
-    <h1>Welcome</h1>
-  </center>
-
+    <div class="cont">
+        <div class="left-section">
+            <h3>Options</h3>
+            <ul class="form-group">
+              <li class="list-group-item">Payment</li>
+              <li class="list-group-item">Payment</li>
+              <li class="list-group-item">Payment</li>
+            </ul>
+            
+          </div>
+           <div class="">
+             <h3>Options</h3>
+             <a href=""><ul class="form-group">
+                <a class="list-group-item" href="{{url_for('UserDetails')}}">Student Details</a>
+                <a class="list-group-item" href="{{url_for('UserDetails')}}">Course Details</a>
+                <a class="list-group-item" href="{{url_for('UserDetails')}}">Grades Details</a>
+ 
+              </ul>
+             </a>
+           </div>
+    </div>
   {%else%}
   <center>
     <h1 class="display-3">StudeBase</h1>
